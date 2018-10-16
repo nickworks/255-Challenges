@@ -1,0 +1,1 @@
+In Game.makeGrid(), create a multidimensional array of Cell objects. This shows basic understanding of creating a grid system.

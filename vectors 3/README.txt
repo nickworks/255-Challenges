@@ -1,0 +1,1 @@
+In Blob.detectOverlap(), use circular collision detection to change the frame of the Blob. This shows basic understanding of calculating the distance between two 2D points.

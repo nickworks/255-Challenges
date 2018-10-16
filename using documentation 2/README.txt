@@ -1,0 +1,1 @@
+In Game.blurPixels(), instantiate a ConvolutionFilter and apply it to the bmd BitmapData. This shows basic understanding of being able to use an API.

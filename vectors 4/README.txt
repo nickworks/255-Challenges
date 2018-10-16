@@ -1,0 +1,1 @@
+In Arrow.handleFrame(), set the Arrow's rotation so that it points at the mouse cursor. This shows basic understanding of converting between cartesian and polar coordinates.

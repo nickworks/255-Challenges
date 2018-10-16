@@ -1,0 +1,1 @@
+In Game.handleFrame(), position the dot object so that it follows the mouse and SNAPS to the center of the tiles. This shows understanding of converting between grid-coordinates and pixel-coordinates.
