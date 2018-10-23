@@ -60,3 +60,38 @@ def calc_delta_time(time):
     time = new_time
     return dt, time
 
+
+def main():
+    """Initialize game state and run main loop."""
+    pygame.init()
+    screen = pygame.display.set_mode(SIZE)
+
+    clock = pygame.time.Clock()
+    t = 0.0
+    current_time = pygame.time.get_ticks() / 1000
+
+    circle = Circle()
+
+    running = True
+
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        # Limit frame rate to 60 FPS
+        dt, current_time = calc_delta_time(current_time)
+
+        screen.fill(BLACK)
+        circle.update(dt)
+        screen.blit(circle.image, circle.rect)
+        pygame.display.flip()
+
+        # t += dt
+
+        clock.tick(60)
+
+
+if __name__ == '__main__':
+    main()
+    pygame.quit()
