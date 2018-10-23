@@ -5,6 +5,8 @@
 	 */	public class Game extends MovieClip {		
 		// TODO: Make any necessary modifications to support the calculation and use of delta-time.
 		public var dt:Number 
+		var time:Number = 0;
+		var timePrev:Number = 0;
 		/**
 		 * This constructor sets up an ENTER_FRAME eventlistener.
 		 */		public function Game() {			addEventListener(Event.ENTER_FRAME, handleFrame);		}
@@ -16,11 +18,8 @@
 		/**
 		 * This method calculates and returns delta-time, in seconds.
 		 * @return	How much time has pass since the previous frame (in seconds).
-		 */		private function calcDeltaTime():Number {
-			
-			// TODO: Calulcate and return delta-time (in seconds)
-			var time:Number = 0;
-			var timePrev:Number = 0;					
+		 */		private function calcDeltaTime():Number {			
+			// TODO: Calulcate and return delta-time (in seconds)								
 			time = getTimer();
 			dt = (time - timePrev) / 1000;
 			timePrev = time;
