@@ -8,5 +8,5 @@
 			
 			// TODO: Modify this method to use delta-time.
 			// TODO: Make this object move at a rate of 200 pixels-per-second.
-						x += 10;
-						if(x > 590) x = -40;		}	}}
+						x += 200 * Game.dtScaled;
+						if(x > 590) x = -40 ;		}	}}
