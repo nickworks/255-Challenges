@@ -46,5 +46,5 @@
 			dt = (time - timePrev) / 1000;
 			dtScaled = dt * scale;
 			timePrev = time;// cache for next frame
-			return 0;
-			trace(dt);		}	}}
+			return dt;
+					}	}}
