@@ -7,6 +7,7 @@
 		
 		/** The countdown timer. How much time, in seconds, until the circle animates. */		private var timer:Number = 3;
 		/** The art work to animate. */		private var art:MovieClip = new MovieClip();
+		/*dt used to calculate the time */
 		var dt:Number;
 		
 		var timePrev:Number = 0;
@@ -18,7 +19,8 @@
 		/*
 		 * This event handler create our game loop.
 		 * @param	e	The Event object that called this handler function.
-		 */		private function handleFrame(e:Event):void {			dt = calcDeltaTime();						animateCircle();						countdown(dt);						timerLabel.text = Math.ceil(timer).toString();		}
+		 */		private function handleFrame(e:Event):void {
+			/*where dt gets its numbers */			dt = calcDeltaTime();						animateCircle();						countdown(dt);						timerLabel.text = Math.ceil(timer).toString();		}
 		/**
 		 * This method calculates and returns delta-time, in seconds.
 		 * @return How much time has passed since the previous frame (in seconds).
