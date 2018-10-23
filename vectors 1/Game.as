@@ -41,14 +41,15 @@
 				// (we use this to control circle size and opacity... neat!)				var percent:Number = (200 - i) / 200;
 				
 				// pick a fill color:				graphics.beginFill(0x000000, percent);				
-				////////////////////////////////////////////////////////////////////////////////////				
-				// TODO: calculate this circle's x and y position
-				// This will require you to convert from polar coordinates: mag and angle
+				// This will require you to convert from polar coordinates: mag and angle
 				var px:Number = 0;				var py:Number = 0;
 				
+				px = mag * Math.cos(angle);
+				py = mag * Math.sin(angle);
+				
 				// These vectors will be originating from the world origin (0,0).
-				// TODO: To center the spiral in the center of the screen, translate (px, py) by adding another vector to it.				
-				////////////////////////////////////////////////////////////////////////////////////
+				px += centerX;
+				py += centerY;
 				
 				// draw the circle:				graphics.drawCircle(px, py, 20 * (1 - percent) + 1);
 				
