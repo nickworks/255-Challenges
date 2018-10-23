@@ -6,7 +6,16 @@
 		// TODO: Make any necessary modifications to support the calculation and use of delta-time.
 		
 		/** The countdown timer. How much time, in seconds, until the circle animates. */		private var timer:Number = 0;
-		/** The art work to animate. */		private var art:MovieClip = new MovieClip();		
+		/** The art work to animate. */		private var art:MovieClip = new MovieClip();
+		
+		public var deltaT:Number = 0;
+		public var dtScaled:Number = 0;
+		public var time:Number = 0; 
+		public var scale:Number = 1; 
+		private var timePrev:Number = 0; 
+		
+		private var delayTimer:Number = 3;
+				
 		/**
 		 * This constructor sets up our artwork, adding it to the stage.
 		 * It also sets up an ENTER_FRAME event listener.
@@ -14,12 +23,17 @@
 		/*
 		 * This event handler create our game loop.
 		 * @param	e	The Event object that called this handler function.
-		 */		private function handleFrame(e:Event):void {			var dt:Number = calcDeltaTime();						animateCircle();						countdown(dt);						timerLabel.text = Math.ceil(timer).toString();		}
+		 */		private function handleFrame(e:Event):void {			var dt:Number = calcDeltaTime();						animateCircle();			countdown(dt);						timerLabel.text = Math.ceil(timer).toString();		}
 		/**
 		 * This method calculates and returns delta-time, in seconds.
 		 * @return How much time has passed since the previous frame (in seconds).
 		 */		private function calcDeltaTime():Number {			
 			// TODO: Calulcate and return delta-time (in seconds)
+			
+			time = getTimer();
+			deltaT = (time - timePrev) / 1000; 
+			dtScaled = deltaT * scale; 
+			timePrev = time;
 			
 			return 0;		}
 		/**
@@ -30,6 +44,14 @@
 		 * method should call the warp() method.
 		 */		private function countdown(dt:Number):void {			
 			// TODO: Modify this method to call the warp() method every 3 seconds. Use the timer property.
+			delayTimer -= dtScaled;
+			timer = delayTimer;
+			if(delayTimer <= dtScaled){
+				trace("hey");
+				warp();
+				delayTimer = 3;
+			}
+			
 					}
 		/**
 		 * This method redraws the circle and scales it up to 1500% its size.
