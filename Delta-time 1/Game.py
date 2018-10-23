@@ -74,24 +74,25 @@ def main():
 
     running = True
 
+    # Start game loop
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
 
-        # Limit frame rate to 60 FPS
         dt, current_time = calc_delta_time(current_time)
-
-        screen.fill(BLACK)
         circle.update(dt)
+
+        # Draw everything
+        screen.fill(BLACK)
         screen.blit(circle.image, circle.rect)
         pygame.display.flip()
 
-        # t += dt
-
+        # Limit framerate to 60 FPS
         clock.tick(60)
 
 
+# Begin the game
 if __name__ == '__main__':
     main()
     pygame.quit()
