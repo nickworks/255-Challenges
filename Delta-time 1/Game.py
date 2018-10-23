@@ -23,3 +23,18 @@ class Circle(pygame.sprite.Sprite):
     def __init__(self):
         super(Circle, self).__init__()
         self.image = 
+def calc_delta_time(time):
+    """Caluclate delta time.
+
+    Args:
+        current_time (float): The number of seconds elapsed until last call.
+
+    Returns:
+        dt (float): Delta time in seconds.
+        time (float): Current number of seconds elapsed.
+    """
+    new_time = pygame.time.get_ticks() / 1000
+    dt = new_time - time
+    time = new_time
+    return dt, time
+
