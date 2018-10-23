@@ -2,7 +2,8 @@
 	 * This class defines the behavior and state of this game, in
 	 * which a single circle moves across the screen. Incredible!
 	 */	public class Game extends MovieClip {		
-		// TODO: Make any necessary modifications to support the calculation and use of delta-time.		
+		// TODO: Make any necessary modifications to support the calculation and use of delta-time.
+
 		/**
 		 * This constructor sets up an ENTER_FRAME eventlistener.
 		 */		public function Game() {			addEventListener(Event.ENTER_FRAME, handleFrame);		}
@@ -16,5 +17,6 @@
 		 */		private function calcDeltaTime():Number {
 			
 			// TODO: Calulcate and return delta-time (in seconds)
+			
 			
 			return 0;		}	}}
