@@ -9,4 +9,13 @@
 		 * This event handler create our game loop.
 		 * @param	e	The Event object that called this handler function.
 		 */		private function handleFrame(e:Event):void {			
-			// move pointer1 to the mouse position:			pointer1.x = mouseX;			pointer1.y = mouseY;									// TODO: calculate angles for pointer1 and pointer2; set their rotation properties		}	}}
+			// move pointer1 to the mouse position:			pointer1.x = mouseX;			pointer1.y = mouseY;									// TODO: calculate angles for pointer1 and pointer2; set their rotation properties
+			
+			var tx:Number = pointer1.x; 
+			var ty:Number = pointer1.y;
+			
+			var angle:Number = Math.atan2(ty,tx);
+			angle *= 180 / Math.PI;
+			
+			pointer2.rotation = angle;
+					}	}}
