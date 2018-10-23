@@ -4,9 +4,9 @@
 	 */	public class Circle extends MovieClip {		
 		/**
 		 * This method updates this object's position, causing it to move.
-		 */		public function update():void {
+		 */		public function update(dt:Number):void {
 			
-			// TODO: Modify this method to use delta-time.
-			// TODO: Make this object move at a rate of 200 pixels-per-second.
-						x += 10;
+			// DONE: Modify this method to use delta-time.
+			// DONE: Make this object move at a rate of 200 pixels-per-second.
+						x += 200 * dt;
 						if(x > 590) x = -40;		}	}}
