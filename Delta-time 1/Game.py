@@ -14,6 +14,10 @@ Author:
 """
 import pygame
 
+# Define constants
+SIZE = (600, 600)
+BLACK = (0, 0, 0)
+
 
 class Circle(pygame.sprite.Sprite):
     def __init__(self):
