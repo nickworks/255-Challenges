@@ -2,6 +2,9 @@
 	 * This class defines the behavior and state of the game,
 	 * in which a spiral pattern is created and manipulated by the mouse position.
 	 */	public class Game extends MovieClip {		
+		var tx:Number;
+		var ty:Number;
+		
 		/**
 		 * This constructor adds an ENTER_FRAME eventlistener.
 		 */		public function Game() {			addEventListener(Event.ENTER_FRAME, handleFrame);		}
@@ -44,7 +47,10 @@
 				////////////////////////////////////////////////////////////////////////////////////				
 				// TODO: calculate this circle's x and y position
 				// This will require you to convert from polar coordinates: mag and angle
-				var px:Number = 0;				var py:Number = 0;
+				var px:Number = mag * Math.cos(angle);				var py:Number = mag * Math.sin(angle);
+				
+				px += centerX;
+				py += centerY;
 				
 				// These vectors will be originating from the world origin (0,0).
 				// TODO: To center the spiral in the center of the screen, translate (px, py) by adding another vector to it.				
