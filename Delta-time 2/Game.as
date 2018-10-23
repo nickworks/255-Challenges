@@ -14,22 +14,24 @@
 		/*
 		 * This event handler create our game loop.
 		 * @param	e	The Event object that called this handler function.
-		 */		private function handleFrame(e:Event):void {			var dt:Number = calcDeltaTime();						animateCircle();						countdown(dt);						timerLabel.text = Math.ceil(timer).toString();		}
-		/**
-		 * This method calculates and returns delta-time, in seconds.
-		 * @return How much time has passed since the previous frame (in seconds).
-		 */		private function calcDeltaTime():Number {			
-			// TODO: Calulcate and return delta-time (in seconds)
+		 */		private function handleFrame(e:Event):void {
 			
-			return 0;		}
+			Time.update();						animateCircle();						countdown();						timerLabel.text = Math.ceil(timer).toString();		}
+
 		/**
 		 * This method animates the artwork. It should be called every frame.
 		 */		private function animateCircle():void {			art.scaleX += (1 - art.scaleX) * .25;			art.scaleY = art.scaleX;		}
 		/**
 		 * This method implements the countdown timer. Every 3 seconds, this
 		 * method should call the warp() method.
-		 */		private function countdown(dt:Number):void {			
+		 */		private function countdown():void {			
 			// TODO: Modify this method to call the warp() method every 3 seconds. Use the timer property.
+			if(timer > 0){
+				timer -= Time.dt;
+			} else {
+				warp();
+				timer = 3;
+			}
 					}
 		/**
 		 * This method redraws the circle and scales it up to 1500% its size.
