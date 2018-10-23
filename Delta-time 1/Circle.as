@@ -5,8 +5,5 @@
 		/**
 		 * This method updates this object's position, causing it to move.
 		 */		public function update(dtScaled: Number):void {
-			
-			// TODO: Modify this method to use delta-time.
-			// TODO: Make this object move at a rate of 200 pixels-per-second.
 						x += 200 * dtScaled;
 						if(x > 590) x = -40;		}	}}

@@ -2,8 +2,7 @@
 	import flash.utils.getTimer;		/**
 	 * This class defines the behavior and state of this game, in
 	 * which a single circle moves across the screen. Incredible!
-	 */	public class Game extends MovieClip {		
-		// TODO: Make any necessary modifications to support the calculation and use of delta-time.
+	 */	public class Game extends MovieClip {
 		
 		/** Delta time variable. */
 		public static var dt: Number = 0;
@@ -30,8 +29,6 @@
 		 * This method calculates and returns delta-time, in seconds.
 		 * @return	How much time has pass since the previous frame (in seconds).
 		 */		private function calcDeltaTime():Number {
-			
-			// TODO: Calulcate and return delta-time (in seconds)
 			
 			time = getTimer();
 			dt = (time - timePrev) / 1000;
