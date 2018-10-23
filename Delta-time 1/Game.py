@@ -20,9 +20,31 @@ BLACK = (0, 0, 0)
 
 
 class Circle(pygame.sprite.Sprite):
+    """Define a circle that moves across the screen.
+
+    Properties:
+        __velocity (int): Velocity as 200 px/s.
+    """
+
+    __velocity = 200
+
     def __init__(self):
+        """Instantiate the circle object."""
         super(Circle, self).__init__()
-        self.image = 
+        self.image = pygame.image.load('circle.png').convert()
+        self.rect = self.image.get_rect(center=(100, 300))
+
+    def update(self, dt):
+        """Update the circle's position.
+
+        Args:
+            dt (float): Delta time in seconds.
+        """
+        self.rect.x = self.rect.x + self.__velocity * dt
+        if self.rect.left > 590:
+            self.rect.x -= 100
+
+
 def calc_delta_time(time):
     """Caluclate delta time.
 
