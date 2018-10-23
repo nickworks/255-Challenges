@@ -10,13 +10,4 @@
 		/**
 		 * This event handler is our game loop. It tells the circle object to update.
 		 * @param	e	The Event object that called this handler function.
-		 */		private function handleFrame(e:Event):void {			var dt:Number = calcDeltaTime();			circle.update();		}
-		/**
-		 * This method calculates and returns delta-time, in seconds.
-		 * @return	How much time has pass since the previous frame (in seconds).
-		 */		private function calcDeltaTime():Number {
-			
-			// TODO: Calulcate and return delta-time (in seconds)
-			
-			
-			return 0;		}	}}
+		 */		private function handleFrame(e:Event):void {			Time.update();			circle.update();		}	}}
