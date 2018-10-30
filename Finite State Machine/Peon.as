@@ -6,7 +6,9 @@
 	
 	public class Peon extends MovieClip {
 
-		// TODO: create property(ies) to track the player's state
+		// DONE: create property(ies) to track the player's state
+		//1 = Idle, 2 = Accelerating, 3 = Decelerating, 4 = Stunned
+		private var playersState:int = 1;
 		
 		private const MARGIN:int = 20;
 		private var bounds:Rectangle = new Rectangle(MARGIN, MARGIN, 550 - MARGIN * 2, 400 - MARGIN * 2);
@@ -32,8 +34,42 @@
 		 */
 		public function update(isMousePressed:Boolean):void {
 			
-			// TODO: swap out the player's artwork to reflect which state it is in
+			// DONE: swap out the player's artwork to reflect which state it is in
 			// TODO: create a finite state machine with correct behavior and transitions
+			switch (playersState) {
+				case 1:
+					gotoAndStop(1); // Idle
+					resetStunTimer();
+					decelerate();
+					doEulerPhysics();
+					if(isMousePressed) playersState = 2; // Is now Accelerating
+					if(isOutOfBounds()) playersState = 4; // Is now Stunned
+					break;
+				
+				case 2:
+					gotoAndStop(2); // Accelerating
+					accelerateTowardsMouse();
+					doEulerPhysics();
+					if(!isMousePressed) playersState = 3; // Is now Decelerating
+					if(isOutOfBounds()) playersState = 4; // Is now Stunned
+					break;
+				
+				case 3:
+					gotoAndStop(3); // Decelerating
+					decelerate();
+					doEulerPhysics();
+					if(isSlowedToStop()) playersState = 1; // Is now Idle
+					if(isOutOfBounds()) playersState = 4; // Is now Stunned
+					break;
+				
+				case 4:
+					gotoAndStop(4); // Stunned
+					jitter();
+					doEulerPhysics();
+					if(!isOutOfBounds() && tickStunTimer()) playersState = 1; //Is now Idle
+					break;
+				
+			}
 			
 		}
 		/**
