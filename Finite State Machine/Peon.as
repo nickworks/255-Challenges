@@ -35,7 +35,7 @@
 		public function update(isMousePressed:Boolean):void {
 			
 			// DONE: swap out the player's artwork to reflect which state it is in
-			// TODO: create a finite state machine with correct behavior and transitions
+			// DONE: create a finite state machine with correct behavior and transitions
 			switch (playersState) {
 				case 1:
 					gotoAndStop(1); // Idle
