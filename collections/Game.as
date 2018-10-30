@@ -6,7 +6,9 @@
 	 */	public class Game extends MovieClip {		
 		/** This array holds all of our CoolThing game objects. */		// TODO: create an array property
 		
-		/** This counter is used to limit how quickly new objects are spawned. */		var counter:int = 0;		
+		/** This counter is used to limit how quickly new objects are spawned. */		var counter:int = 0;
+		
+		var CoolThings:Array = new Array();		
 		/**
 		 * This constructor sets up an ENTER_FRAME eventlistener.
 		 */		public function Game() {			var timer:Timer = new Timer(20);
@@ -25,6 +27,13 @@
 		 * "Dead" objects are removed from the game.
 		 */		private function updateThings():void{
 
+			for(var i = CoolThings.length - 1; i >= 0; i--){
+				CoolThings[i].update();
+				if(CoolThings[i].isDead){
+					removeChild(CoolThings[i])
+					CoolThings.splice(i, 1);
+				}
+			}
 			// TODO: iterate through the array, updating each CoolThing
 			// TODO: if a CoolThing object is "dead" remove it from the array
 			
@@ -40,4 +49,5 @@
 		 * This function is called to spawn new CoolThing objects.
 		 * It uses the counter property to limit how many objects
 		 * are spawning.
-		 */		private function spawn():void {			counter ++;			if(counter >= 10){				var ct:CoolThing = new CoolThing(mouseX, mouseY);				// TODO: add the CoolThing object to the array				addChild(ct);				counter = 0;			}		}	}	}
+		 */		private function spawn():void {			counter ++;			if(counter >= 10){				var ct:CoolThing = new CoolThing(mouseX, mouseY);				// TODO: add the CoolThing object to the array				addChild(ct);				counter = 0;
+				CoolThings.push(ct);			}		}	}	}
