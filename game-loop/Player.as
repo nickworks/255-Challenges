@@ -17,8 +17,12 @@
 			stop();
 		}
 		
-		// TODO: Implement the update design pattern.
-		// TODO: Make sure animate() is called each frame.
+		// DONE: Implement the update design pattern.
+		// DONE: Make sure animate() is called each frame.
+		
+		public function update():void {
+			animate();
+		}
 		
 		/** This method controls the Player's animation frames. */
 		private function animate():void {

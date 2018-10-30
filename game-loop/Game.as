@@ -19,12 +19,17 @@
 		/** This is the Game constructor. */
 		public function Game() {
 			addChild(player);
-			
+			addEventListener(Event.ENTER_FRAME, gameLoop);
 		}
 		
-		// TODO: Implement the game-loop design pattern.
-		// TODO: Make sure that delta-time is calculated each frame
-		// TODO: Make sure the player is updated each frame
+		// DONE: Implement the game-loop design pattern.
+		// DONE: Make sure that delta-time is calculated each frame
+		// DONE: Make sure the player is updated each frame
+		
+		private function gameLoop(e:Event):void {
+			calcDeltaTime();
+			player.update();
+		}
 		
 		/**
 		 * This function calculates delta-time. It should be
