@@ -13,4 +13,9 @@
 		 */		private function reset():void {			x = parent.mouseX;			y = parent.mouseY;			velX = Math.random() * 10 - 5;			velY = Math.random() * - 10;			alpha = Math.random();		}		/**
 		 * This event handler updates this object, causing it to move.
 		 * @param	e	The Event object that called this handler function.
-		 */		public function update(e:Event):void {						// TODO: implement Euler integration by using velocity, and adding gravity						if(y > 410) reset();		}	}}
+		 */		public function update(e:Event):void {						// TODO: implement Euler integration by using velocity, and adding gravity
+			velY += 1;
+			
+			x += velX;
+			y += velY;
+			//trace("update");						if(y > 410) reset();		}	}}
