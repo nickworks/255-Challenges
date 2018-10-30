@@ -4,7 +4,7 @@
 	/**
 	 * This class defines the state and behavior of this game.
 	 */	public class Game extends MovieClip {		
-		/** This array holds all of our CoolThing game objects. */		// TODO: create an array property
+		/** This array holds all of our CoolThing game objects. */		var coolThings:Array = new Array();
 		
 		/** This counter is used to limit how quickly new objects are spawned. */		var counter:int = 0;		
 		/**
@@ -35,6 +35,11 @@
 			//			remove from the array
 			//		end if
 			//	end loop
+			
+			for(i >= 0; coolThings.length - 1; i++) {
+				coolThings[i].update();
+				if(coolThings[i].isDead)
+			}
 					}
 		/**
 		 * This function is called to spawn new CoolThing objects.
