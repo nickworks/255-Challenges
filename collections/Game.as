@@ -36,13 +36,16 @@
 			//		end if
 			//	end loop
 			
-			for(i >= 0; coolThings.length - 1; i++) {
+			for(var i = coolThings.length - 1; i >= 0; i++) {
 				coolThings[i].update();
-				if(coolThings[i].isDead)
+				if(coolThings[i].isDead) {
+					removeChild(coolThings[i]);
+					coolThings[i].splice(i, 1);
+				}
 			}
 					}
 		/**
 		 * This function is called to spawn new CoolThing objects.
 		 * It uses the counter property to limit how many objects
 		 * are spawning.
-		 */		private function spawn():void {			counter ++;			if(counter >= 10){				var ct:CoolThing = new CoolThing(mouseX, mouseY);				// TODO: add the CoolThing object to the array				addChild(ct);				counter = 0;			}		}	}	}
+		 */		private function spawn():void {			counter ++;			if(counter >= 10){				var ct:CoolThing = new CoolThing(mouseX, mouseY);				coolThings.push(ct)				addChild(ct);				counter = 0;			}		}	}	}

@@ -2,7 +2,7 @@
 	/**
 	 * This class creates a circle that expands at an exponentially increasing rate.
 	 */	public class CoolThing extends MovieClip{
-				/** Whether or not this object should be removed. */		static var isDead:Boolean = false;
+				/** Whether or not this object should be removed. */		public var isDead:Boolean = false;
 		
 		/** The current radius of the circle. */		private var radius:Number = 2;
 		
