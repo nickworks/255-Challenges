@@ -5,8 +5,8 @@
 	public class AABB {
 
 		// TODO: create variables to store the 4 edges of the bounding box
-		private var w:Number;
-		private var h:Number;
+		private var halfWidth:Number;
+		private var halfHeight:Number;
 		// TODO: create variables to store the size (or half-size) of the bounding box
 		private var xmin:Number;
 		private var xmax:Number;
@@ -14,20 +14,19 @@
 		private var ymax:Number;
 		
 		public function AABB() {
-			setSize(w, h);
+	
 		}
 		public function setSize(w:int, h:int):void {
 			// TODO: implement the logic in this method that stores the size of the box
-			this.w = w;
-			this.h = h;
-			calc((xmin + xmax)/2, (ymin + ymax)/2)
+			halfWidth = w / 2;
+			halfHeight = h / 2;
 		}
 		public function calc(x:Number, y:Number):void {
 			// TODO: implement the logic in this method to calculate and store the 4 edge positions of this box
-			xmin = x - w;
-			xmax = x + w;
-			ymin = y - h;
-			ymax = y + h;
+			xmin = x - halfWidth;
+			xmax = x + halfWidth;
+			ymin = y - halfHeight;
+			ymax = y + halfHeight;
 			
 		}
 		public function overlaps(other:AABB):Boolean {
