@@ -10,8 +10,8 @@
 
 			Game.platforms.push(this);
 			
-			// TODO: using this.width and this.height set the size of the AABB
-			// TODO: calc AABB
+			aabb.setSize(x, y);
+			aabb.calc(x, y);
 		}
 	}
 	

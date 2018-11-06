@@ -13,7 +13,7 @@
 		private var gravity:Point = new Point(0, 1);
 		
 		public function Player() {
-			// TODO: using this.width and this.height, set the size of the AABB
+			aabb.setSize(this.width, this.height);
 		}
 		public function update(){
 			
@@ -21,7 +21,8 @@
 			
 			x += velocity.x;
 			y += velocity.y;
-			// TODO: recalculate the AABB
+			
+			aabb.calc(x, y);
 		}
 		public function applyFix(fix:Point){
 			// TODO: "apply" the fix
