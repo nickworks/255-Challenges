@@ -29,7 +29,7 @@
 			ymin = y - halfHeight;
 			ymax = y + halfHeight;
 		}
-		public function overlaps(other:AABB):Boolean {
+		public function overlap(other:AABB):Boolean {
 			// TODO: implement the logic in this method to return false if AABBs don't overlap; otherwise return true
 			if (this.xmax < other.xmin) return false; // gap to the right of the player
 			if (this.xmin > other.xmax) return false; // gap to the left
