@@ -2,6 +2,7 @@
 	
 	import flash.display.MovieClip;
 	import flash.events.*;
+	import flash.geom.Point;
 	
 	public class Game extends MovieClip {
 		
@@ -17,8 +18,13 @@
 			player.update();
 			
 			for each(var p:Platform in platforms){
-				// TODO: if player overlaps with p,
-				// calculate overlap fix and apply to the player
+				// DONE: if player overlaps with p,
+				if(player.aabb.overlaps(p.aabb)){
+					// calculate overlap fix and apply to the player
+					var fix:Point = player.aabb.findOverlap(p.aabb);
+					player.applyFix(fix);
+				}
+				
 			}
 		}
 		private function handleKeyDown(e:KeyboardEvent):void {
