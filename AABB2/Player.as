@@ -13,7 +13,7 @@
 		private var gravity:Point = new Point(0, 1);
 		
 		public function Player() {
-			// TODO: using this.width and this.height, set the size of the AABB
+			aabb.setSize(width / 2, height / 2);
 		}
 		public function update(){
 			
@@ -21,11 +21,18 @@
 			
 			x += velocity.x;
 			y += velocity.y;
-			// TODO: recalculate the AABB
+		
+			aabb.calc(x, y);
 		}
 		public function applyFix(fix:Point){
-			// TODO: "apply" the fix
-			// TODO: make sure that the object's velocity doesn't accumulate and cause clipping
+			if (fix.x != 0) {
+				x += fix.x;
+				velocity.x = 0;
+			}
+			if (fix.y != 0) {
+				y += fix.y;
+				velocity.y = 0;
+			}
 		}
 		public function gravityLeft():void {
 			gravity = new Point(-GRAVITY, 0);
