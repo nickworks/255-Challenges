@@ -19,6 +19,9 @@
 			for each(var p:Platform in platforms){
 				// TODO: if player overlaps with p,
 				// calculate overlap fix and apply to the player
+				if(player.aabb.overlaps(p.aabb)){
+					trace("overlap");
+				}
 			}
 		}
 		private function handleKeyDown(e:KeyboardEvent):void {

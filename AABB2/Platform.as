@@ -12,6 +12,8 @@
 			
 			// TODO: using this.width and this.height set the size of the AABB
 			// TODO: calc AABB
+			aabb.setSize(width, height);
+			aabb.calc(x, y);
 		}
 	}
 	
